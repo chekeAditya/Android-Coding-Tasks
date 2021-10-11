@@ -1,0 +1,27 @@
+package com.example.customisablepizzas.di
+
+import com.example.customisablepizzas.remote.APIClient
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Singleton
+
+@Module
+@InstallIn(SingletonComponent::class)
+object PizzaModule {
+
+    private const val BASE_URL =
+        "https://gist.githubusercontent.com/chekeAditya/30bb6e2f20558100fe5fcf4c04e91892/raw/f4fbe0fbb1b081834e790e30e15be531f858a527/"
+
+    @Provides
+    fun provideAPISERVICE(): APIClient {
+        val builder = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        return builder.create(APIClient::class.java)
+    }
+}
