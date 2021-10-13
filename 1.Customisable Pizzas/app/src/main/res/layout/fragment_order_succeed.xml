@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragment.OrderSucceed">
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="100dp"
+        android:id="@+id/gif_image"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/gif_payment" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_below="@+id/gif_image"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/tvSizeName"
+            style="@style/TextView_FoodName"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:text="Thanks For Ordering"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

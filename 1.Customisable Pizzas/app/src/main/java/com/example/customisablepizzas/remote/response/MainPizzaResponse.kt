@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class MainPizzaResponse(
     @SerializedName("crusts")
-    val crusts: List<Crust>,
+    val crustModels: List<CrustModel>,
     @SerializedName("defaultCrust")
     val defaultCrust: Int,
     @SerializedName("description")

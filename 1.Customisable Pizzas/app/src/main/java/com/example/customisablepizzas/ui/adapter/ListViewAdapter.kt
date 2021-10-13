@@ -6,13 +6,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.customisablepizzas.R
 import com.example.customisablepizzas.databinding.ItemLayoutBinding
-import com.example.customisablepizzas.remote.response.Crust
-import com.example.customisablepizzas.remote.response.MainPizzaResponse
-import com.example.customisablepizzas.remote.response.Size
+import com.example.customisablepizzas.remote.response.CrustModel
+import com.example.customisablepizzas.remote.response.SizeModel
 
 class ListViewAdapter(
-    val sizeList : List<Size>,
-    val crustList : List<Crust>
+    val sizeModelList: List<SizeModel>,
+    private val crustModelList: List<CrustModel>,
+    private val onBottomSheetClicked: OnButtonClickedListeners
 ) : RecyclerView.Adapter<ListViewAdapter.ListViewHolder>() {
 
 
@@ -20,31 +20,35 @@ class ListViewAdapter(
         val layoutInflater = LayoutInflater.from(parent.context)
         val itemLayoutBinding: ItemLayoutBinding =
             DataBindingUtil.inflate(layoutInflater, R.layout.item_layout, parent, false)
-        return ListViewHolder(itemLayoutBinding)
+        return ListViewHolder(itemLayoutBinding, onBottomSheetClicked)
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-      val size = crustList[position].sizes[position]
+        val size = crustModelList[position].sizeModels[position]
         holder.onBindSizeResponse(size)
 
-        val crust = crustList[position]
+        val crust = crustModelList[position]
         holder.onBindCrust(crust)
     }
 
     override fun getItemCount(): Int {
-        return crustList.size
+        return crustModelList.size
     }
 
     //viewHolder
-    class ListViewHolder(private val itemLayoutBinding: ItemLayoutBinding) :
+    class ListViewHolder(
+        private val itemLayoutBinding: ItemLayoutBinding,
+        val onBottomSheetClicked: OnButtonClickedListeners
+    ) :
         RecyclerView.ViewHolder(itemLayoutBinding.root) {
 
-        fun onBindSizeResponse(size: Size) {
-            itemLayoutBinding.size = size
+        fun onBindSizeResponse(sizeModel: SizeModel) {
+            itemLayoutBinding.size = sizeModel
         }
 
-        fun onBindCrust(crust: Crust) {
-            itemLayoutBinding.crust = crust
+        fun onBindCrust(crustModel: CrustModel) {
+            itemLayoutBinding.addItemClicked = onBottomSheetClicked
+            itemLayoutBinding.crust = crustModel
         }
     }
 }

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="crust"
+            type="com.example.customisablepizzas.remote.response.CrustModel" />
+
+        <variable
+            name="size"
+            type="com.example.customisablepizzas.remote.response.SizeModel" />
+
+        <variable
+            name="onClick"
+            type="com.example.customisablepizzas.ui.adapter.OnButtonClickedListeners" />
+    </data>
+
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rlBottomSheet">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/tvSizeName"
+                style="@style/TextView_FoodName"
+                android:layout_marginTop="35dp"
+                android:text="Select Size's"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvShowSize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/display_Quantity"
+                android:layout_width="0dp"
+                android:layout_marginEnd="3dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/rectangle_next_enter"
+                android:gravity="center"
+                android:text="Quantity"
+                android:padding="15dp"
+                android:textColor="@color/white" />
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_marginStart="3dp"
+                    android:id="@+id/total_Sum"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:text="Price"
+                    android:background="@drawable/rectangle_next_enter"
+                    android:gravity="center"
+                    android:padding="15dp"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>
+</layout>

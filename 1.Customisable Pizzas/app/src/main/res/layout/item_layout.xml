@@ -6,22 +6,23 @@
 
         <variable
             name="crust"
-            type="com.example.customisablepizzas.remote.response.Crust" />
+            type="com.example.customisablepizzas.remote.response.CrustModel" />
 
         <variable
-            name="mainReponse"
-            type="com.example.customisablepizzas.remote.response.MainPizzaResponse" />
+            name="addItemClicked"
+            type="com.example.customisablepizzas.ui.adapter.OnButtonClickedListeners" />
 
         <variable
             name="size"
-            type="com.example.customisablepizzas.remote.response.Size" />
+            type="com.example.customisablepizzas.remote.response.SizeModel" />
     </data>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardElevation="10dp"
-        android:layout_margin="10dp">
+        android:layout_margin="5dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp">
 
 
         <RelativeLayout
@@ -29,44 +30,50 @@
             android:layout_height="match_parent"
             android:layout_margin="5dp">
 
+            <ImageView
+                android:id="@+id/ivPizzaImage"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/pizza" />
+
             <TextView
+                android:layout_toEndOf="@+id/ivPizzaImage"
                 android:id="@+id/tvName"
                 style="@style/TextView_FoodName"
-                android:text="@{crust.name}" />
+                android:layout_marginStart="20dp"
+                android:text="@{crust.name}"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
 
             <TextView
+                android:layout_toEndOf="@+id/ivPizzaImage"
+                android:layout_marginStart="20dp"
                 android:id="@+id/tvDesc"
                 style="@style/TextView_FoodName"
                 android:layout_below="@+id/tvName"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                android:textSize="15sp" />
+                android:text="@string/desc"
+                android:textColor="@color/cyan"
+                android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/tvQuantity"
-                style="@style/TextView_FoodName"
-                android:layout_below="@+id/tvDesc"
-                android:text="Prize: "
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/tvQuantityNumber"
-                style="@style/TextView_FoodName"
-                android:layout_below="@+id/tvDesc"
-                android:layout_toEndOf="@+id/tvQuantity"
-                android:text="@{size.price}"
-                android:textSize="15sp" />
-
-            <Button
-                style="@style/ButtonAddRemove"
-                android:layout_below="@+id/tvQuantityNumber"
-                android:text="Aditya"
-                android:textColor="@color/white"
-                android:background="@drawable/rectangle_bg"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ivPizzaImage"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/rectangle_next_enter"
+                android:gravity="center"
+                android:onClick="@{()->addItemClicked.onOpenBottomSheetClicked(crust)}"
+                android:padding="10dp"
+                android:text="Add Item"
+                android:textColor="@color/white" />
 
 
         </RelativeLayout>
 
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 </layout>

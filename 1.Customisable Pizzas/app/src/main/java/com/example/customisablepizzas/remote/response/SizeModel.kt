@@ -3,13 +3,11 @@ package com.example.customisablepizzas.remote.response
 
 import com.google.gson.annotations.SerializedName
 
-data class Crust(
-    @SerializedName("defaultSize")
-    val defaultSize: Int,
+data class SizeModel(
     @SerializedName("id")
     val id: Int,
     @SerializedName("name")
     val name: String,
-    @SerializedName("sizes")
-    val sizes: List<Size>
+    @SerializedName("price")
+    val price: Double
 )
