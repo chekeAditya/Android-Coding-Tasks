@@ -39,7 +39,7 @@
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:layout_toEndOf="@+id/ivImage"
-                android:text="@{country.name}" />
+                android:text="@{responseItem.country.name}" />
 
             <TextView
                 android:id="@+id/tvBirthDate"
@@ -51,7 +51,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
                 android:layout_toEndOf="@+id/ivImage"
-                android:text="@{responseItem.birthday" />
+                android:text="@{responseItem.birthday}" />
 
             <TextView
                 android:id="@+id/tvDeathDate"

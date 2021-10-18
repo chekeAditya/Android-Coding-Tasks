@@ -53,7 +53,7 @@ class TvMazeViewHolder(private val itemLayoutBinding: ItemLayoutBinding) :
 
     fun onBindTvMazeItem(tvMazeResponseModelItem: TVMazeResponseModelItem) {
         itemLayoutBinding.responseItem = tvMazeResponseModelItem
-        Glide.with(itemLayoutBinding.ivImage).load(tvMazeResponseModelItem.image)
+        Glide.with(itemLayoutBinding.ivImage).load(tvMazeResponseModelItem.image.original)
             .into(itemLayoutBinding.ivImage)
     }
 
