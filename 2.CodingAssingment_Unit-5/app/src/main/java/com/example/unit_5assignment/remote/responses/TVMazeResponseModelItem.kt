@@ -1,8 +1,11 @@
 package com.example.unit_5assignment.remote.responses
 
 
+import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 
+
+@Entity(tableName = "TVMazeResponseModel")
 data class TVMazeResponseModelItem(
     @SerializedName("birthday")
     val birthday: String,
