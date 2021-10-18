@@ -5,7 +5,6 @@ import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 
 
-@Entity(tableName = "table_tv_maze")
 data class TVMazeResponseModelItem(
     @SerializedName("birthday")
     val birthday: String,

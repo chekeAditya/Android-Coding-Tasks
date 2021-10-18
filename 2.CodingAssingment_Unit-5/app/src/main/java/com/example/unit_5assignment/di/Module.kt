@@ -3,6 +3,8 @@ package com.example.unit_5assignment.di
 import android.content.Context
 import androidx.room.Room
 import com.example.unit_5assignment.remote.APIClient
+import com.example.unit_5assignment.remote.localDatabase.AppDao
+import com.example.unit_5assignment.remote.localDatabase.ApplicationRoomDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,20 +29,20 @@ object Module {
         return builder.create(APIClient::class.java)
     }
 
-//    @Singleton
-//    @Provides
-//    fun provideRoomDB(@ApplicationContext context: Context): ApplicationRoomDatabase {
-//        val builder = Room.databaseBuilder(
-//            context, ApplicationRoomDatabase::class.java, "movies_db"
-//        )
-//        builder.fallbackToDestructiveMigration()
-//        return builder.build()
-//    }
-//
-//    @Singleton
-//    @Provides
-//    fun provideDao(db: ApplicationRoomDatabase): AppDao {
-//        return db.getResponseFromDao()
-//    }
+    @Singleton
+    @Provides
+    fun provideRoomDB(@ApplicationContext context: Context): ApplicationRoomDatabase {
+        val builder = Room.databaseBuilder(
+            context, ApplicationRoomDatabase::class.java, "movies_db"
+        )
+        builder.fallbackToDestructiveMigration()
+        return builder.build()
+    }
+
+    @Singleton
+    @Provides
+    fun provideDao(db: ApplicationRoomDatabase): AppDao {
+        return db.getResponseFromDao()
+    }
 
 }

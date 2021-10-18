@@ -1,5 +1,6 @@
 package com.example.unit_5assignment.ui.adapter
 
+import android.opengl.Visibility
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -38,7 +39,6 @@ class TvMazeAdapter : PagingDataAdapter<TVMazeResponseModelItem, TvMazeViewHolde
             if (!(it.deathday == null || it.birthday == null)) {
                 holder.onBindTvMazeItem(it)
             }else{
-
             }
         }
     }

@@ -1,6 +1,7 @@
 package com.example.unit_5assignment.remote
 
 import com.example.unit_5assignment.remote.responses.TVMazeResponseModel
+import com.example.unit_5assignment.remote.responses.TVMazeResponseModelItem
 import retrofit2.http.GET
 import retrofit2.http.Query
 
