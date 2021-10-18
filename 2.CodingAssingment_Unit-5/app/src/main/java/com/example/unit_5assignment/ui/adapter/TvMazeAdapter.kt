@@ -1,7 +1,9 @@
 package com.example.unit_5assignment.ui.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
@@ -50,9 +52,17 @@ class TvMazeAdapter : PagingDataAdapter<TVMazeResponseModelItem, TvMazeViewHolde
 class TvMazeViewHolder(private val itemLayoutBinding: ItemLayoutBinding) :
     RecyclerView.ViewHolder(itemLayoutBinding.root) {
 
-    fun onBindTvMazeItem(tvMazeResponseModelItem: TVMazeResponseModelItem) {
+    fun onBindTvMazeItem(tvMazeResponseModelItem: TVMazeResponseModelItem?) {
         itemLayoutBinding.responseItem = tvMazeResponseModelItem
-        Glide.with(itemLayoutBinding.ivImage).load(tvMazeResponseModelItem.image.original)
-            .into(itemLayoutBinding.ivImage)
+        if (tvMazeResponseModelItem?.country == null){
+            itemLayoutBinding.cardView.isVisible = false
+        }
+        try {
+            Glide.with(itemLayoutBinding.ivImage).load(tvMazeResponseModelItem?.image?.original)
+                .into(itemLayoutBinding.ivImage)
+
+        } catch (e: Exception) {
+            Log.d("TAG", "onBindTvMazeItem: ${e.printStackTrace()}")
+        }
     }
 }
