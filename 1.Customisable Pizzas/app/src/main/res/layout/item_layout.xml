@@ -45,13 +45,12 @@
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
-
             <TextView
-                android:layout_toEndOf="@+id/ivPizzaImage"
-                android:layout_marginStart="20dp"
                 android:id="@+id/tvDesc"
                 style="@style/TextView_FoodName"
                 android:layout_below="@+id/tvName"
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@+id/ivPizzaImage"
                 android:text="@string/desc"
                 android:textColor="@color/cyan"
                 android:textSize="12sp" />
@@ -70,7 +69,6 @@
                 android:padding="10dp"
                 android:text="Add Item"
                 android:textColor="@color/white" />
-
 
         </RelativeLayout>
 

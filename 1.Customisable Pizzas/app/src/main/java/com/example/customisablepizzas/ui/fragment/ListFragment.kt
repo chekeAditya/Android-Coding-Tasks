@@ -31,7 +31,6 @@ class ListFragment : Fragment(), OnButtonClickedListeners {
     private lateinit var bottonSheetBinding: FragmentBottomSheetBinding
     lateinit var selectSizeAdapter: SelectSizeAdapter
 
-
     private lateinit var fragmentListBinding: FragmentListBinding
     lateinit var listViewAdapter: ListViewAdapter
     private val crustList = mutableListOf<CrustModel>()
