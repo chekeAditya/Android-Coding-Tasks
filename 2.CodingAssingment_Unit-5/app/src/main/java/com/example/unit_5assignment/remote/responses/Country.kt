@@ -3,6 +3,7 @@ package com.example.unit_5assignment.remote.responses
 
 import com.google.gson.annotations.SerializedName
 
+
 data class Country(
     @SerializedName("code")
     val code: String,

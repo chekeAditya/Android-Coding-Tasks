@@ -80,4 +80,8 @@ dependencies {
     //hilt
     implementation("com.google.dagger:hilt-android:2.38.1")
     kapt("com.google.dagger:hilt-android-compiler:2.38.1")
+
+    //pagination
+    def paging_version = "3.1.0-alpha03"
+    implementation "androidx.paging:paging-runtime-ktx:$paging_version"
 }
