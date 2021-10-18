@@ -9,4 +9,5 @@ interface APIClient {
     //url :- https://api.tvmaze.com/people?page=1
     @GET("people")
     suspend fun getResponse(@Query("page") page : Int) : TVMazeResponseModel
+
 }

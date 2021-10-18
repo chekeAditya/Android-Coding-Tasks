@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.unit_5assignment.R
 import com.example.unit_5assignment.databinding.ItemLayoutBinding
-import com.example.unit_5assignment.remote.responses.Country
 import com.example.unit_5assignment.remote.responses.TVMazeResponseModelItem
 
 class TvMazeAdapter : PagingDataAdapter<TVMazeResponseModelItem, TvMazeViewHolder>(diffUtil) {
@@ -55,9 +54,5 @@ class TvMazeViewHolder(private val itemLayoutBinding: ItemLayoutBinding) :
         itemLayoutBinding.responseItem = tvMazeResponseModelItem
         Glide.with(itemLayoutBinding.ivImage).load(tvMazeResponseModelItem.image.original)
             .into(itemLayoutBinding.ivImage)
-    }
-
-    fun onBindCountry(country: Country) {
-        itemLayoutBinding.country = country
     }
 }

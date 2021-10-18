@@ -5,25 +5,20 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.liveData
-import com.example.unit_5assignment.remote.APIClient
 import com.example.unit_5assignment.remote.responses.TVMazeResponseModelItem
 import com.example.unit_5assignment.ui.adapter.TvMazePagingSource
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-class PagingRepo @Inject constructor(private val apiClient: APIClient) {
+class PagingRepo () {
 
     fun getResponseFromAPI(){
         CoroutineScope(IO).launch {
-            saveToDB(getPagesIst())
+//            saveToDB(getPagesIst())
         }
     }
 
-    private fun saveToDB(pagesIst: LiveData<PagingData<TVMazeResponseModelItem>>) {
-
-    }
 
     fun getPagesIst() =
         Pager(
