@@ -3,7 +3,6 @@ package com.example.unit_5assignment.ui.adapter
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
@@ -36,7 +35,11 @@ class TvMazeAdapter : PagingDataAdapter<TVMazeResponseModelItem, TvMazeViewHolde
     override fun onBindViewHolder(holder: TvMazeViewHolder, position: Int) {
         val tvMazeResponseModelItem = getItem(position)
         tvMazeResponseModelItem?.let {
-            holder.onBindTvMazeItem(it)
+            if (!(it.deathday == null || it.birthday == null)) {
+                holder.onBindTvMazeItem(it)
+            }else{
+
+            }
         }
     }
 
@@ -54,9 +57,6 @@ class TvMazeViewHolder(private val itemLayoutBinding: ItemLayoutBinding) :
 
     fun onBindTvMazeItem(tvMazeResponseModelItem: TVMazeResponseModelItem?) {
         itemLayoutBinding.responseItem = tvMazeResponseModelItem
-        if (tvMazeResponseModelItem?.country == null){
-            itemLayoutBinding.cardView.isVisible = false
-        }
         try {
             Glide.with(itemLayoutBinding.ivImage).load(tvMazeResponseModelItem?.image?.original)
                 .into(itemLayoutBinding.ivImage)

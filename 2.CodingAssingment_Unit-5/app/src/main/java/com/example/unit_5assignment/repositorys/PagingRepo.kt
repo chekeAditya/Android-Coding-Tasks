@@ -21,7 +21,7 @@ class PagingRepo() {
     fun getPagesIst() =
         Pager(
             config = PagingConfig(
-                pageSize = 20,
+                pageSize = 20
             ),
             pagingSourceFactory = { TvMazePagingSource() }
         ).liveData
