@@ -3,6 +3,7 @@ package com.example.customisablepizzas.remote
 import com.example.customisablepizzas.remote.response.CrustModel
 import com.example.customisablepizzas.remote.response.MainPizzaResponse
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface APIClient {
 
@@ -12,4 +13,5 @@ interface APIClient {
 
     @GET("Customizable%2520Pizza")
     suspend fun getSizePizzaResponse() : CrustModel
+
 }

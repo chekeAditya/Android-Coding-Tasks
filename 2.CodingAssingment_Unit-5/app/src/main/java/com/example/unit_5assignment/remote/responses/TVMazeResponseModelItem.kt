@@ -1,7 +1,6 @@
 package com.example.unit_5assignment.remote.responses
 
 
-import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 
 
