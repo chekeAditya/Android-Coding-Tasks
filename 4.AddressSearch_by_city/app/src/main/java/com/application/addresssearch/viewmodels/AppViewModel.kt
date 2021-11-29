@@ -1,0 +1,53 @@
+package com.application.addresssearch.viewmodels
+
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import com.application.addresssearch.di.AppModule
+import com.application.addresssearch.remote.ApiClient
+import com.application.addresssearch.remote.responses.DataModel
+import com.application.addresssearch.remote.responses.ResponseDTO
+import io.reactivex.Observer
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.Disposable
+import io.reactivex.schedulers.Schedulers
+
+class AppViewModel : ViewModel() {
+
+
+    var responseDTO: MutableLiveData<ResponseDTO> = MutableLiveData()
+
+    fun getCityListObserver(): MutableLiveData<ResponseDTO> {
+        return responseDTO
+    }
+
+    fun makeApiCall(query: String) { //query: String)
+        val apiResponse = AppModule.provideApi().create(ApiClient::class.java)
+        apiResponse.getResponse("airtel", query) // query
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(getCityListObserverRxJava())
+    }
+
+    private fun getCityListObserverRxJava(): Observer<ResponseDTO> {
+        return object : Observer<ResponseDTO> {
+            override fun onSubscribe(d: Disposable) {
+                //start progress bar
+            }
+
+            override fun onNext(t: ResponseDTO) {
+                responseDTO.postValue(t)
+            }
+
+            override fun onError(e: Throwable) {
+                responseDTO.postValue(null)
+            }
+
+            override fun onComplete() {
+                //hide progress bar
+            }
+
+        }
+    }
+
+
+}

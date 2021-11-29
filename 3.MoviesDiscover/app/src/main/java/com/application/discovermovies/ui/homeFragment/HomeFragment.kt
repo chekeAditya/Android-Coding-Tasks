@@ -60,8 +60,6 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnItemClicked {
         }
 
 
-
-
         viewModel.moviePagedList.observe(viewLifecycleOwner, Observer {
             if (it != null){
                 adapter.submitList(it)
