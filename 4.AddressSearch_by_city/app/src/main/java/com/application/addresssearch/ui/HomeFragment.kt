@@ -1,14 +1,11 @@
 package com.application.addresssearch.ui
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.application.addresssearch.R
@@ -16,12 +13,14 @@ import com.application.addresssearch.adapters.CityAdapter
 import com.application.addresssearch.databinding.FragmentHomeBinding
 import com.application.addresssearch.remote.responses.AddressModel
 import com.application.addresssearch.viewmodels.AppViewModel
+import com.arlib.floatingsearchview.FloatingSearchView.OnQueryChangeListener
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
-class HomeFragment : Fragment(R.layout.fragment_home) {
 
-    val viewModel: AppViewModel by viewModels()
+@AndroidEntryPoint
+class HomeFragment : Fragment() {
+
+    private lateinit var viewModel: AppViewModel
     lateinit var homeFragmentHomeBinding: FragmentHomeBinding
     lateinit var cityAdapter: CityAdapter
 
@@ -38,6 +37,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        viewModel = AppViewModel()
         searchEditText()
         setRecyclerView()
     }
@@ -52,18 +53,23 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun searchEditText() {
-        homeFragmentHomeBinding.etCityName.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
-            }
+//        homeFragmentHomeBinding.etCityName.addTextChangedListener(object : TextWatcher {
+//            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+//
+//            }
+//
+//            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+//                loadApiData(s.toString())
+//            }
+//
+//            override fun afterTextChanged(s: Editable?) {
+//
+//            }
+//        })
 
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                loadApiData(s.toString())
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-
-            }
+        homeFragmentHomeBinding.floatingSearchView.setOnQueryChangeListener(OnQueryChangeListener { _, newQuery -> //get suggestions based on newQuery
+            loadApiData(newQuery)
         })
     }
 

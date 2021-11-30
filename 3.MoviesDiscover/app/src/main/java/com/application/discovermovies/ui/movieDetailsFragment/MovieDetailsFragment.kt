@@ -22,13 +22,12 @@ import java.util.*
 class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
 
     lateinit var fragmentMovieDetailsBinding: FragmentMovieDetailsBinding
-    val viewModel: AppViewModels by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         fragmentMovieDetailsBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_movie_details, container, false)
         return fragmentMovieDetailsBinding.root
@@ -37,8 +36,6 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-        val bundle = Bundle()
         val resultModel: ResultModel? = arguments?.getSerializable("resultModel") as ResultModel?
 
         bindUI(resultModel)

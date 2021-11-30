@@ -17,8 +17,5 @@ interface APIClient {
         @Query("primary_release_date") primary_release_date: String
     ): Single<MovieResponseModel>
 
-    @GET("movie/{id}")
-    fun getDetails(@Path("id") id: Int): Single<ResultModel>
-
 
 }

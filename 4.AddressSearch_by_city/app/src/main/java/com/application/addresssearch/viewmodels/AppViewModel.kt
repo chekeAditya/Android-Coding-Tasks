@@ -31,7 +31,7 @@ class AppViewModel : ViewModel() {
     private fun getCityListObserverRxJava(): Observer<ResponseDTO> {
         return object : Observer<ResponseDTO> {
             override fun onSubscribe(d: Disposable) {
-                //start progress bar
+//progress bar show
             }
 
             override fun onNext(t: ResponseDTO) {
@@ -43,7 +43,7 @@ class AppViewModel : ViewModel() {
             }
 
             override fun onComplete() {
-                //hide progress bar
+//stop
             }
 
         }
