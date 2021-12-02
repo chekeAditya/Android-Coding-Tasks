@@ -37,7 +37,7 @@ class ItunesViewHolder(
 ) : RecyclerView.ViewHolder(itemLayoutBinding.root) {
 
     fun onBind(resultModel: ResultModel) {
-//        itemLayoutBinding.artistName?.text = resultModel.artistName
+        itemLayoutBinding.resultModel = resultModel
         Glide.with(itemLayoutBinding.artistImage).load(resultModel.artworkUrl100)
             .into(itemLayoutBinding.artistImage)
     }

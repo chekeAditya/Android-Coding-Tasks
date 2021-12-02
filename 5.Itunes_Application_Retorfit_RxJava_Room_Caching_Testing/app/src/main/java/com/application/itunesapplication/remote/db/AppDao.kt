@@ -5,15 +5,17 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.application.itunesapplication.remote.responses.ResultModel
 
 @Dao
 interface AppDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun addDataFromAPI(result: List<ResultModel?>)
+    fun addDataFromAPI(result: ItunesDbTable)
 
-    @Query("select * from itune_details")
-    fun getResponseFromApi() : LiveData<List<ResultModel?>>
+    @Query("select * from itunes_db")
+    fun getResponseFromDb(): LiveData<ItunesDbTable>
+
+    @Query("delete from itunes_db")
+    fun deleteAllDataFromDB()
 
 }

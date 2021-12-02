@@ -1,12 +1,8 @@
 package com.application.itunesapplication.remote.responses
 
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
-@Entity(tableName = "itune_details")
 data class ResultModel(
     @SerializedName("artistId")
     val artistId: Int,
@@ -92,8 +88,4 @@ data class ResultModel(
     val trackViewUrl: String,
     @SerializedName("wrapperType")
     val wrapperType: String
-){
-        @PrimaryKey
-        @ColumnInfo(name = "id")
-        var id: Int? = null
-}
+)

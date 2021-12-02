@@ -4,18 +4,13 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-
-data class ItunesTableModel(
-    @PrimaryKey
+@Entity(tableName = "itunes_db")
+data class ItunesDbTable(
     @ColumnInfo(name = "artistName")
     val artistName: String,
-    @PrimaryKey
-    @ColumnInfo(name = "songName")
-    val songName: String,
-    @PrimaryKey
-    @ColumnInfo(name = "urlSong")
-    val urlSong: String,
-){
+    @ColumnInfo(name = "artistImageUrl")
+    val artistImageUrl: String
+) {
     @PrimaryKey
     @ColumnInfo(name = "id")
     var id: Int? = null

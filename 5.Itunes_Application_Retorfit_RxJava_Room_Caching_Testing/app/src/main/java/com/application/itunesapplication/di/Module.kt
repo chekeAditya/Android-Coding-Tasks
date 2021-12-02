@@ -2,6 +2,7 @@ package com.application.itunesapplication.di
 
 import android.content.Context
 import androidx.room.Room
+import com.application.itunesapplication.di.Constants.BASE_URL
 import com.application.itunesapplication.remote.interfaces.APIClient
 import com.application.itunesapplication.remote.db.AppDao
 import com.application.itunesapplication.remote.db.ItunesRoomDatabase
@@ -19,18 +20,14 @@ import javax.inject.Singleton
 object Module {
 
     //    Base_Url:- https://itunes.apple.com/search?term=baby
-
-    const val BASE_URL = "https://itunes.apple.com/"
-    @Singleton
     @Provides
-    fun provideAPIService(): APIClient {
-        val builder  = Retrofit.Builder()
+    fun provideApiService(): APIClient {
+        val builder = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         return builder.create(APIClient::class.java)
     }
-
 
     @Singleton
     @Provides
@@ -47,4 +44,12 @@ object Module {
     fun provideDataToDao(db: ItunesRoomDatabase): AppDao {
         return db.getResponseFromDao()
     }
+
+}
+
+object Constants {
+
+    const val BASE_URL = "https://itunes.apple.com/"
+
+
 }
