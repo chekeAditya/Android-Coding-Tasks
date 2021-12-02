@@ -162,4 +162,4 @@ override fun onBindViewHolder(holder: MoviesViewHolder, position: Int) {
 override fun getItemCount(): Int {
     return responseList.size
 }
- */
+*/

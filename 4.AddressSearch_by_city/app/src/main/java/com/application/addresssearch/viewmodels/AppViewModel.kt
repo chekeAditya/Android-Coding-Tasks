@@ -4,7 +4,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.application.addresssearch.di.AppModule
 import com.application.addresssearch.remote.ApiClient
-import com.application.addresssearch.remote.responses.DataModel
 import com.application.addresssearch.remote.responses.ResponseDTO
 import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
