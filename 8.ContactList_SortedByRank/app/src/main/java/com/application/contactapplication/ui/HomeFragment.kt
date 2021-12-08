@@ -77,14 +77,20 @@ class HomeFragment : Fragment(), OnCardClicked {
         })
     }
 
+
     private fun getContactList() {
         val cursr = activity?.contentResolver
+
+        val MSELECTIONCLAUSE =
+            ContactsContract.Contacts.DISPLAY_NAME_PRIMARY + " = 'Aditya'"  //this will run only if primary Name is 'Aditya' & if we had to pass ? the we had to pass SelectionArgs
+        val mSelectionArguments = arrayOf("Aditya") //
+
         val cursor: Cursor? = cursr?.query(
             ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
-            MULTIPLEDATA,
-            null,
-            null,
-            ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME
+            mProjection,
+            null, //MSELECTIONCLAUSE
+            null, //mSelectionArguments
+            ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME //decide the sorting of the Query Result
         )
         if (cursor != null) {
             val mobileNoSet = HashSet<String>()
@@ -110,11 +116,13 @@ class HomeFragment : Fragment(), OnCardClicked {
             } finally {
                 cursor.close()
             }
+        } else {
+            Toast.makeText(context, "No contact's in device", Toast.LENGTH_SHORT).show()
         }
 
     }
 
-    private val MULTIPLEDATA = arrayOf(
+    private val mProjection = arrayOf(
         ContactsContract.CommonDataKinds.Phone.CONTACT_ID,
         ContactsContract.Contacts.DISPLAY_NAME,
         ContactsContract.CommonDataKinds.Phone.NUMBER
