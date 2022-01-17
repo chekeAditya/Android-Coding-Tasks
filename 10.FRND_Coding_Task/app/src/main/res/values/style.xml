@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="HomeScreen_Back_Forward_Button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/sp_25</item>
+    </style>
+
+    <style name="TextHeading">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/sp_20</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="Text_ItemlayoutHeading">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/sp_16</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Days_Name_HomeFragment">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">@dimen/sp_18</item>
+    </style>
+
+    <style name="Edittext_EventFragment">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/bg_rectangle</item>
+        <item name="android:padding">@dimen/dp_10</item>
+        <item name="android:layout_margin">@dimen/dp_20</item>
+        <item name="android:drawableEnd">@drawable/ic_baseline_search_24</item>
+    </style>
+
+    <style name="Edittext_BottomSheet">
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/bg_rectangle</item>
+        <item name="android:padding">@dimen/dp_10</item>
+        <item name="android:layout_margin">@dimen/dp_20</item>
+    </style>
+
+    <style name="ButtonSave_BottomSheet">
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/rectangle_next_enter</item>
+        <item name="android:paddingStart">@dimen/dp_30</item>
+        <item name="android:paddingEnd">@dimen/dp_30</item>
+        <item name="android:paddingTop">@dimen/dp_10</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:paddingBottom">@dimen/dp_10</item>
+        <item name="android:layout_margin">@dimen/dp_20</item>
+    </style>
+
+
+</resources>

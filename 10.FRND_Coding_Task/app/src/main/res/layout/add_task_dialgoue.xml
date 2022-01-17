@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/Margin30dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/tv_Date_To_Save"
+        android:textAlignment="center"
+        android:paddingTop="@dimen/Margin10dp"
+        android:textSize="@dimen/Margin20dp"
+        android:layout_marginStart= "@dimen/Margin30dp"
+        android:layout_marginEnd= "@dimen/Margin30dp"
+        android:layout_marginTop="@dimen/Margin30dp"
+        android:background="@drawable/bg_rectangle"
+        android:layout_height="@dimen/Margin50sp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/Margin50sp"
+        android:layout_margin="@dimen/Margin30dp"
+        android:id="@+id/et_Task_to_added"
+        android:background="@drawable/bg_rectangle"
+        android:hint=""
+        android:textAlignment="center"
+        android:textColor="@color/black" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/Margin50sp"
+        android:layout_marginStart= "@dimen/Margin30dp"
+        android:layout_marginEnd= "@dimen/Margin30dp"
+        android:id="@+id/et_Descripition_to_added"
+        android:background="@drawable/bg_rectangle"
+        android:hint=""
+        android:textAlignment="center"
+        android:textColor="@color/black" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:text="Save"
+        android:id="@+id/btn_toSaveTheTask"
+        android:background="@drawable/rectangle_next_enter"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/Margin30dp"
+        android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

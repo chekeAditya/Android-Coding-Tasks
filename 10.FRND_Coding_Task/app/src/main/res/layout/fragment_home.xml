@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.fragments.HomeFragment">
+
+
+        <LinearLayout
+            android:id="@+id/llTopHeading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp">
+
+            <Button
+                android:id="@+id/btnPrevious"
+                style="@style/HomeScreen_Back_Forward_Button"
+                android:layout_weight="1"
+                android:text="@string/back" />
+
+            <TextView
+                android:id="@+id/monthYearTV"
+                style="@style/TextHeading"
+                android:layout_weight="2"
+                android:text="Feb 2021"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btnForward"
+                style="@style/HomeScreen_Back_Forward_Button"
+                android:layout_weight="1"
+                android:text="@string/forward" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/llDays"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/llTopHeading">
+
+            <TextView
+                style="@style/Days_Name_HomeFragment"
+                android:text="@string/sun" />
+
+            <TextView
+                style="@style/Days_Name_HomeFragment"
+                android:text="@string/mon" />
+
+            <TextView
+                style="@style/Days_Name_HomeFragment"
+                android:text="@string/tue" />
+
+            <TextView
+                style="@style/Days_Name_HomeFragment"
+                android:text="@string/wed" />
+
+            <TextView
+                style="@style/Days_Name_HomeFragment"
+                android:text="@string/thrus" />
+
+            <TextView
+                style="@style/Days_Name_HomeFragment"
+                android:text="@string/fri" />
+
+            <TextView
+                style="@style/Days_Name_HomeFragment"
+                android:text="@string/sat" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/calendarRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/llDays"
+            android:layout_marginTop="@dimen/dp_10" />
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/sp_20"
+            android:backgroundTint="@color/purple_500"
+            android:contentDescription="@string/fab_button" />
+
+    </RelativeLayout>
+</layout>

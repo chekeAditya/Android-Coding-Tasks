@@ -73,7 +73,6 @@ class ListFragment : Fragment(), OnButtonClickedListeners {
         fragmentListBinding.apply {
             rvPizzaList.layoutManager = LinearLayoutManager(requireContext())
             rvPizzaList.adapter = listViewAdapter
-
         }
     }
 
